@@ -1,6 +1,6 @@
 /* Assignment 1: sh360 program
  * Zenara Daley V00820899
- * CSC 360, Summer 2017
+ * CSC 360, Summer 2018
  */
 
 #include <stdio.h>
@@ -77,9 +77,9 @@ void pp_handler(char *commands[3][9], char *paths[], int arrow_count){
     char command3[20];
     strcpy(command1, commands[0][0]);
     strcpy(command2, commands[1][0]);
-    strcpy(command3, commands[2][0]);
+    if(arrow_count == 2)
+      strcpy(command3, commands[2][0]);
 
-    // char *envp[] = { 0 };
     int status;
     int pid_c1, pid_c2, pid_c3;
     
@@ -209,9 +209,6 @@ int main(void) {
     }
     if(is_empty(input))
       continue;
-
-    //DEBUG
-    // printf("%s\n", input);
     
     // validate command type
     char *type;
